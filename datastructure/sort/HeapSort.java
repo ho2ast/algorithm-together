@@ -4,6 +4,7 @@ public class HeapSort {
     public static void main(String[] args) {
         int[] arr = {5, 4, 3, 7, 4, 8, 9, 10, 45, 63, 33, 22};
         heapSort(arr);
+
         for (int a : arr) {
             System.out.print(a + " ");
         }
@@ -15,16 +16,18 @@ public class HeapSort {
         }
 
         for (int i = getParentIndex(arr); i > -1; i--) {
-            heapify(arr, i, arr.length - 1);
+//            heapifyWithRecursive(arr, i, arr.length - 1);
+            heapifyWithLoop(arr, i, arr.length - 1);
         }
 
         for (int i = arr.length - 1; i > 0; i--) {
             swap(arr, 0, i);
-            heapify(arr, 0, i - 1);
+//            heapifyWithRecursive(arr, 0, i - 1);
+            heapifyWithLoop(arr, 0, i - 1);
         }
     }
 
-    private static void heapify(int[] arr, int parentIndex, int lastIndex) {
+    private static void heapifyWithRecursive(int[] arr, int parentIndex, int lastIndex) {
         int leftChildIndex = (parentIndex * 2) + 1;
         int rightChildIndex = (parentIndex * 2) + 2;
         int largestIndex = parentIndex;
@@ -39,7 +42,33 @@ public class HeapSort {
 
         if (largestIndex != parentIndex) {
             swap(arr, largestIndex, parentIndex);
-            heapify(arr, largestIndex, lastIndex);
+            heapifyWithRecursive(arr, largestIndex, lastIndex);
+        }
+    }
+
+    private static void heapifyWithLoop(int[] arr, int parentIndex, int lastIndex) {
+        int leftChildIndex;
+        int rightChildIndex;
+        int largestIndex;
+
+        while ((parentIndex * 2) + 1 <= lastIndex) {
+            leftChildIndex = (parentIndex * 2) + 1;
+            rightChildIndex = (parentIndex * 2) + 2;
+            largestIndex = parentIndex;
+
+            if (arr[leftChildIndex] > arr[largestIndex]) {
+                largestIndex = leftChildIndex;
+            }
+
+            if (rightChildIndex <= lastIndex && arr[rightChildIndex] > arr[largestIndex]) {
+                largestIndex = rightChildIndex;
+            }
+
+            if (parentIndex == largestIndex) {
+                return;
+            }
+            swap(arr, parentIndex, largestIndex);
+            parentIndex = largestIndex;
         }
     }
 
