@@ -12,12 +12,12 @@ public class Level8Test {
     }
 }
 
-class Level8Triangle {
+class Level8TriangleTest {
     int first;
     int second;
     int third;
 
-    public Level8Triangle(int first, int second, int third) {
+    public Level8TriangleTest(int first, int second, int third) {
         this.first = first;
         this.second = second;
         this.third = third;
