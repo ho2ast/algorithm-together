@@ -25,8 +25,9 @@ public class Level4 {
                 arr[i] = Integer.parseInt(br.readLine());
             }
 
-            mergeSort(arr, 0, arr.length - 1);
+//            mergeSort(arr, 0, arr.length - 1);
 //            quickSort(arr, 0, arr.length - 1);
+            heapSort(arr);
 
             for (int a : arr) {
                 bw.write(a + "\n");
@@ -118,4 +119,45 @@ public class Level4 {
 //        quickSort(arr, left, lo - 1);
 //        quickSort(arr, lo, right);
 //    }
+
+    private static void heapSort(int[] arr) {
+        int size = arr.length;
+        if(size < 2) {
+            return;
+        }
+        int parentIdx = (size - 2) / 2;
+
+        for (int i = parentIdx; i > -1; i--) {
+            heapify(arr, i, size - 1);
+        }
+
+        for (int i = size - 1; i > -1; i--) {
+            int temp = arr[i];
+            arr[i] = arr[0];
+            arr[0] = temp;
+            heapify(arr, 0, i - 1);
+        }
+    }
+
+    private static void heapify(int[] arr, int parentIdx, int lastIdx) {
+            int leftChildIdx = (parentIdx * 2) + 1;
+            int rightChildIdx = (parentIdx * 2) + 2;
+            int largestIdx = parentIdx;
+
+            if (leftChildIdx <= lastIdx && arr[leftChildIdx] > arr[largestIdx]) {
+                largestIdx = leftChildIdx;
+            }
+
+            if (rightChildIdx <= lastIdx && arr[rightChildIdx] > arr[largestIdx]) {
+                largestIdx = rightChildIdx;
+            }
+
+            if (parentIdx != largestIdx) {
+                int temp = arr[parentIdx];
+                arr[parentIdx] = arr[largestIdx];
+                arr[largestIdx] = temp;
+                heapify(arr, largestIdx, lastIdx);
+            }
+
+    }
 }
