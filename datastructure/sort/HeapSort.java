@@ -2,7 +2,7 @@ package datastructure.sort;
 
 public class HeapSort {
     public static void main(String[] args) {
-        int[] arr = {5, 4, 3, 7, 4, 8, 9, 10, 45, 63, 33, 22};
+        int[] arr = {5, 2, 3, 7, 4, 8, 2, 10, 2, 63, 33, 22};
         heapSort(arr);
 
         for (int a : arr) {
@@ -73,7 +73,7 @@ public class HeapSort {
     }
 
     private static int getParentIndex(int[] arr) {
-        return (arr.length - 1) / 2;
+        return (arr.length - 2) / 2;
     }
 
     private static void swap(int[] arr, int i, int j) {
