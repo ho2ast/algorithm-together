@@ -4,7 +4,7 @@ public class QuickSort {
     public static void main(String[] args) {
         int[] arr1 = {7, 1, 6, 4, 2, 3, 7};
         int[] arr2 = {7, 1, 6, 4, 2, 3, 7};
-        int[] arr3 = {7, 1, 6, 4, 2, 3, 7};
+        int[] arr3 = {4, 1, 23, 4, 6, 87, 3, 4, 2, 5};
         int[] arr4 = {5, 3, 8, 9, 2, 4, 7};
         leftQuickSort(arr1, 0, arr1.length - 1);
         rightQuickSort(arr2, 0, arr2.length - 1);
@@ -130,7 +130,7 @@ public class QuickSort {
     private static int midPartition(int[] arr, int left, int right) {
         int pivot = arr[(left + right) / 2];
 
-        while (left < right) {
+        while (left <= right) {
             while (arr[left] < pivot) {
                 left++;
             }
