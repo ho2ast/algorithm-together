@@ -6,11 +6,11 @@ import org.junit.jupiter.api.Test;
 public class Level7Test {
     @Test
     void getKindOfTriangle() {
-        Level7Triangle triangle = new Level7Triangle(6, 5, 4);
-        Level7Triangle triangle2 = new Level7Triangle(2, 2, 2);
-        Level7Triangle triangle3 = new Level7Triangle(6, 2, 6);
-        Level7Triangle triangle4 = new Level7Triangle(3, 2, 5);
-        Level7Triangle triangle5 = new Level7Triangle(0, 0, 0);
+        Level7TestTriangle triangle = new Level7TestTriangle(6, 5, 4);
+        Level7TestTriangle triangle2 = new Level7TestTriangle(2, 2, 2);
+        Level7TestTriangle triangle3 = new Level7TestTriangle(6, 2, 6);
+        Level7TestTriangle triangle4 = new Level7TestTriangle(3, 2, 5);
+        Level7TestTriangle triangle5 = new Level7TestTriangle(0, 0, 0);
 
         Assertions.assertThat(triangle.getTriangleTypes()).isEqualTo("Scalene");
         Assertions.assertThat(triangle2.getTriangleTypes()).isEqualTo("Equilateral");
@@ -20,10 +20,10 @@ public class Level7Test {
     }
 }
 
-class Level7Triangle {
+class Level7TestTriangle {
     int first, second, third;
 
-    public Level7Triangle(int first, int second, int third) {
+    public Level7TestTriangle(int first, int second, int third) {
         this.first = first;
         this.second = second;
         this.third = third;
