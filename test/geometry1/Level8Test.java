@@ -1,5 +1,6 @@
 package geometry1;
 
+import baekjoon.geometry1.Level8Triangle;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
