@@ -1,13 +1,12 @@
 package geometry1;
 
-import baekjoon.geometry1.Level8Triangle;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class Level8Test {
     @Test
     void getMaxArea() {
-        Level8Triangle triangle = new Level8Triangle(41, 64, 16);
+        Level8TriangleTest triangle = new Level8TriangleTest(41, 64, 16);
 
         Assertions.assertThat(triangle.getMaxArea()).isEqualTo(113);
     }
