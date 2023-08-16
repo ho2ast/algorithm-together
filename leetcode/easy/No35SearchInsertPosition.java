@@ -12,13 +12,31 @@ public class No35SearchInsertPosition {
 
   /**
    * <p>반복문을 돌며 배열 값이 target 보다 같거나 커질 때 인덱스를 반환 해준다.
+   * <p>해당 풀이도 O(n)의 시간복잡도로 충분히 빠르지만 binary search를 이용하면 더욱 빠른 해결이 가능하다.
    */
   public int searchInsert(int[] nums, int target) {
-    for (int i = 0; i < nums.length; i++) {
-      if (nums[i] >= target) {
-        return i;
+//    for (int i = 0; i < nums.length; i++) {
+//      if (nums[i] >= target) {
+//        return i;
+//      }
+//    }
+//    return nums.length;
+    int start = 0;
+    int end = nums.length - 1;
+
+    while (start <= end) {
+      int mid = (start + end) / 2;
+      if (nums[mid] == target) {
+        return mid;
+      }
+
+      if (nums[mid] < target) {
+        start = mid + 1;
+      } else {
+        end = mid - 1;
       }
     }
-    return nums.length;
+
+    return start;
   }
 }
