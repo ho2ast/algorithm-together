@@ -1,10 +1,15 @@
 package algorithmProblemSolving.bruteforce;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RecursiveFunction {
 
   public static void main(String[] args) {
     System.out.println(sum(10));
     System.out.println(recursiveSum(10));
+
+    pick(7, new ArrayList<>(), 4);
   }
 
   /**
@@ -28,5 +33,30 @@ public class RecursiveFunction {
   public static int recursiveSum(int n) {
     if (n == 1) return 1;
     return n + recursiveSum(n - 1);
+  }
+
+  /**
+   * <p>0부터 차례대로 번호가 매겨진 n의 원소중 j개를 고르는 모든 경우의 수를 구한다.
+   * <p>n -> 전체 원소의 수
+   * <p>picked -> 지금까지 고른 원소들의 번호
+   * <p>toPick -> 더 고를 원소의 수
+   */
+  public static void pick(int n, List<Integer> picked, int toPick) {
+    if (toPick == 0) {
+      for (Integer pickedNum : picked) {
+        System.out.print(pickedNum);
+      }
+      System.out.println();
+      return;
+
+    }
+
+    int smallest = picked.isEmpty() ? 0 : picked.get(picked.size() - 1) + 1;
+
+    for (int next = smallest; next < n; ++next) {
+      picked.add(next);
+      pick(n, picked, toPick - 1);
+      picked.remove(picked.size() - 1);
+    }
   }
 }
