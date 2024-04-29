@@ -1,4 +1,4 @@
-package baekjoon.chanhyeng;
+package baekjoon.chanhyeng.weeks1;
 
 import java.io.*;
 import java.util.ArrayList;
