@@ -43,28 +43,24 @@ public class Baekjoon11728 {
     int arr2Index = 0;
 
     // 최대 2백만건
-    while (true) {
-      if (arr1Index == arr1Size || arr2Index == arr2Size) {
-        break;
-      }
-
+    while (arr1Index < arr1Size && arr2Index < arr2Size) {
       if (arr1[arr1Index] >= arr2[arr2Index]) {
-        bw.write(String.valueOf(arr2[arr2Index]));
+        bw.write(String.valueOf(arr2[arr2Index++]));
         bw.write(" ");
-        arr2Index++;
-      } else if (arr2[arr2Index] > arr1[arr2Index]){
-        bw.write(String.valueOf(arr1[arr1Index]));
+      } else {
+        bw.write(String.valueOf(arr1[arr1Index++]));
         bw.write(" ");
-        arr1Index++;
       }
     }
 
-    if (arr2Index < arr2Size) {
+    if (arr1Index == arr1Size) {
       for (int i = arr2Index; i < arr2Size; i++) {
         bw.write(String.valueOf(arr2[i]));
         bw.write(" ");
       }
-    } else if (arr1Index < arr1Size) {
+    }
+
+    if (arr2Index == arr2Size) {
       for (int i = arr1Index; i < arr1Size; i++) {
         bw.write(String.valueOf(arr1[i]));
         bw.write(" ");
