@@ -57,22 +57,22 @@ public class Baekjoon1753 {
       Collections.sort(graph.get(i));
     }
 
-    bw.write(String.valueOf());
+//    bw.write(String.valueOf());
     bw.flush();
     bw.close();
     br.close();
   }
 
-  static int[] dijkstra(int K) {
-    PriorityQueue<Node> pq = new PriorityQueue<>();
-    boolean[] visited = new boolean[K + 1];
-
-    pq.offer(new Node(K, 0));
-    while (!pq.isEmpty()) {
-      Node poll = pq.poll();
-
-
-    }
-  }
+//  static int[] dijkstra(int K) {
+//    PriorityQueue<Node> pq = new PriorityQueue<>();
+//    boolean[] visited = new boolean[K + 1];
+//
+//    pq.offer(new Node(K, 0));
+//    while (!pq.isEmpty()) {
+//      Node poll = pq.poll();
+//
+//
+//    }
+//  }
 
 }
