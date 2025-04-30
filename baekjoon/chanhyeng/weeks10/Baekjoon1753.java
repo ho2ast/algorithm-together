@@ -57,22 +57,42 @@ public class Baekjoon1753 {
       Collections.sort(graph.get(i));
     }
 
-//    bw.write(String.valueOf());
+    dijkstra(K);
+
+    for (int i = 1; i <= V; i++) {
+      if (dist[i] == Integer.MAX_VALUE) {
+        bw.write("INF");
+      } else {
+        bw.write(dist[i]);
+      }
+      bw.newLine();
+    }
+
     bw.flush();
     bw.close();
     br.close();
   }
 
-//  static int[] dijkstra(int K) {
-//    PriorityQueue<Node> pq = new PriorityQueue<>();
-//    boolean[] visited = new boolean[K + 1];
-//
-//    pq.offer(new Node(K, 0));
-//    while (!pq.isEmpty()) {
-//      Node poll = pq.poll();
-//
-//
-//    }
-//  }
+  static void dijkstra(int K) {
+    PriorityQueue<Node> pq = new PriorityQueue<>();
+    boolean[] visited = new boolean[K + 1];
+    dist[K] = 0;
 
+    pq.offer(new Node(K, 0));
+    while (!pq.isEmpty()) {
+      Node cur = pq.poll();
+
+      if (dist[cur.v] < cur.w) {
+        continue;
+      }
+
+      for (Node next : graph.get(cur.v)) {
+        int nextWeight = cur.w + next.w;
+        visited[next.v] = true;
+        dist[next.v] = nextWeight;
+        pq.offer(new Node(next.v, nextWeight));
+      }
+
+    }
+  }
 }

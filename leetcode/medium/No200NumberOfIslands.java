@@ -1,8 +1,10 @@
 package leetcode.medium;
 
+import java.lang.reflect.InvocationTargetException;
+
 public class No200NumberOfIslands {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
     char[][] arr = {
         {'1', '1', '1', '1', '0'}
         ,
